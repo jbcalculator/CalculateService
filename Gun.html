@@ -5,6 +5,25 @@
 
 <head>
     <title>JBEzShop คำนวณค่าบริการ</title>
+	<script type="text/javascript" src="javascript/gun.js"></script>
+	<script language="javascript" type="text/javascript">
+	function calgun()
+		{
+			if (document.getElementById("reqlev").value > 750)
+				{
+					alert("เลเวล ที่ต้องการปั้มไม่ถูกต้อง")
+				}
+			else if (gun(document.getElementById("curlev").value,document.getElementById("reqlev").value)<50)
+				{
+					alert("รับปั้มขั้นต่ำ 50 บาท")
+				}
+			else
+				{
+					alert("ราคาทั้งหมด "+gun(document.getElementById("curlev").value,document.getElementById("reqlev").value)+" บาท")
+				}
+			
+		}
+	</script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Roboto|Prompt');
@@ -88,9 +107,9 @@
             Gun
         </h1>
         <p>
-            เลเวลปัจจุบัน : <input type="text" id="Curlevel" value=""><br>
-            เลเวลที่ต้องการ : <input type="text" id="Prevlevel" value=""><br><br>
-            <button class="button button1" onclick="CalFunction">คำนวณราคา</button>
+            เลเวลปัจจุบัน : <input type="text" id="curlev" value=""><br>
+            เลเวลที่ต้องการ : <input type="text" id="reqlev" value=""><br><br>
+            <button class="button button1" onClick="calgun()">คำนวณราคา</button>
         </p>
         <a href="https://www.facebook.com/JBEzShop/">
             <img src="ชำระเงิน.jpg" style="width:100%">
@@ -98,14 +117,6 @@
         
     </div>
 
-    
-
-    <script>
-        function CalFunction() {
-            var x = document.getElementById("myText").value;
-            document.getElementById("demo").innerHTML = x;
-        }
-    </script>
 </body>
 
 </html>
